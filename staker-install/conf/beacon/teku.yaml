@@ -1,0 +1,7 @@
+network: "pyrmont"
+metrics-enabled: true
+rest-api-enabled: true
+rest-api-docs-enabled: true
+eth1-endpoint: "http://127.0.0.1:8545"
+logging: "DEBUG"
+log-color-enabled: true
