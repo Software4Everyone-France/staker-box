@@ -1,0 +1,15 @@
+[Unit]
+Description=Ethereum 2 Lighthouse Validator
+Wants=lighthouse-beacon-chain.service
+After=lighthouse-beacon-chain.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+User=validator
+ExecStart=/home/validator/lighthouse vc --network mainnet
+
+[Install]
+WantedBy=multi-user.target

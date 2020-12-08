@@ -1,0 +1,16 @@
+[Unit]
+Description=Ethereum 2 Prysm Beacon Chain
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+User=beacon
+ExecStart=/home/beacon/prysm --config-file=/home/beacon/conf/beacon.yaml
+MemoryHigh=4G
+MemoryMax=5G
+
+[Install]
+WantedBy=multi-user.target

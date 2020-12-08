@@ -1,0 +1,15 @@
+[Unit]
+Description=eth2stats-nimbus
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+WorkingDirectory=/var/lib/eth2stats-nimbus/
+User=eth2stats
+ExecStart=/usr/local/bin/eth2stats-client run --v --eth2stats.node-name="Staker box  Nimbus' Node" --eth2stats.addr="grpc.medalla.eth2stats.io:443" --beacon.metrics-addr="http://localhost:8108/metrics" --eth2stats.tls=true --beacon.type="nimbus" --beacon.addr="http://localhost:9190"
+
+[Install]
+WantedBy=multi-user.target
+

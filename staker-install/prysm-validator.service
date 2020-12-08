@@ -1,0 +1,15 @@
+[Unit]
+Description=Ethereum 2 Validator
+Wants=prysm-beacon-chain.service
+After=prysm-beacon-chain.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+User=validator
+ExecStart=/home/validator/prysm --config-file=/home/validator/conf/validator.yaml --accept-terms-of-use=true
+
+[Install]
+WantedBy=multi-user.target

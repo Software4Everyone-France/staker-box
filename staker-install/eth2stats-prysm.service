@@ -1,0 +1,16 @@
+[Unit]
+Description=eth2stats
+After=beacon-chain.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+WorkingDirectory=/var/lib/eth2stats-prysm/
+User=eth2stats
+ExecStart=/usr/local/bin/eth2stats-client run --v --eth2stats.node-name="Staker box Prysm's Node" --eth2stats.addr="grpc.medalla.eth2stats.io:443" --beacon.metrics-addr="http://localhost:8080/metrics" --eth2stats.tls=true --beacon.type="prysm" --beacon.addr="localhost:4000"
+
+[Install]
+WantedBy=multi-user.target
+

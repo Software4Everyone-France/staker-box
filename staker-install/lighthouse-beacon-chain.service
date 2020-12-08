@@ -1,0 +1,16 @@
+[Unit]
+Description=Ethereum 2 Lighthouse Beacon Chain
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+User=beacon
+ExecStart=/home/beacon/lighthouse beacon_node --eth1-endpoint "http://127.0.0.1:8545" --ws --http --metrics  --debug-level debug --network mainnet
+MemoryHigh=4G
+MemoryMax=5G
+
+[Install]
+WantedBy=multi-user.target

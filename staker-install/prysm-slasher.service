@@ -1,0 +1,16 @@
+[Unit]
+Description=Ethereum 2 Prysm Slasher
+Wants=prysm-beacon-chain.service
+After=prysm-beacon-chain.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+User=slasher
+ExecStart=/home/slasher/prysm --accept-terms-of-use
+
+[Install]
+WantedBy=multi-user.target
+Alias=slasher

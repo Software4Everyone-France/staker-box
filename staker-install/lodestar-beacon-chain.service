@@ -1,0 +1,16 @@
+[Unit]
+Description=Ethereum 2 Lodestar Beacon Chain
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+User=beacon
+ExecStart=/home/beacon/lodestar beacon --testnet medalla --metrics.enabled true --metrics.serverPort 8018 --network.discv5.bindAddr /ip4/0.0.0.0/udp/9200 --network.multiaddrs "/ip4/0.0.0.0/tcp/9200" --rootDir "/home/beacon/lodestar-data"
+MemoryHigh=8G
+MemoryMax=10G
+
+[Install]
+WantedBy=multi-user.target

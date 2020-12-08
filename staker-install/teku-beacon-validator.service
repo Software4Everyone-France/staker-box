@@ -1,0 +1,16 @@
+[Unit]
+Description=Ethereum 2 Teku Beacon Validator Service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+User=validator
+ExecStart=/home/validator/teku --config-file=/home/validator/conf/teku.yaml
+MemoryHigh=6G
+MemoryMax=8G
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=Ethereum 1 Go Client
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+User=geth
+WorkingDirectory=/home/geth
+ExecStart=/usr/bin/geth --http --http.addr 0.0.0.0
+
+[Install]
+WantedBy=multi-user.target
