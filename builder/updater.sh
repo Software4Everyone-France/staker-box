@@ -25,8 +25,8 @@ git pull
 echo "Dispatch latest $(find dist/ -maxdepth 1 -name 'beacon-chain-*-linux-amd64' | sort -r | head -n 1) file to out"
 
 cp "$(find dist/ -maxdepth 1 -name 'beacon-chain-*-linux-amd64' | sort -r | head -n 1)"  "${updateDir}"/out/beacon/
-cp "$(find dist/ -maxdepth 1 -name 'beacon-validator-*-linux-amd64' | sort -r | head -n 1)" "${updateDir}"/out/validator/
-cp "$(find dist/ -maxdepth 1 -name 'beacon-slasher-*-linux-amd64' | sort -r | head -n 1)" "${updateDir}"/out/slasher/
+cp "$(find dist/ -maxdepth 1 -name 'validator-*-linux-amd64' | sort -r | head -n 1)" "${updateDir}"/out/validator/
+cp "$(find dist/ -maxdepth 1 -name 'slasher-*-linux-amd64' | sort -r | head -n 1)" "${updateDir}"/out/slasher/
 
 echo "Update Lighthouse"
 
